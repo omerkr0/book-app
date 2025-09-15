@@ -26,9 +26,13 @@ function BookList() {
           <h2>{resultTitle}</h2>
         </div>
         <div className='booklist-content grid'>
-          {booksWithCovers.slice(0, 30).map((item, index) => {
-            return <Book key={index} {...item} />
-          })}
+          {booksWithCovers.length === 0 ? (
+            <p className='no-books'>No books found. Try a different search.</p>
+          ) : (
+            booksWithCovers.slice(0, 30).map((item) => {
+              return <Book key={item.id} {...item} />
+            })
+          )}
         </div>
       </div>
     </section>
