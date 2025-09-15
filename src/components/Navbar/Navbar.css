@@ -42,7 +42,8 @@
 .nav-link {
   transition: var(--transition);
 }
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--blue-color);
 }
 

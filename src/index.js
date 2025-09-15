@@ -14,6 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}>
+          <Route index element={<BookList />} />
           <Route path='about' element={<About />} />
           <Route path='book' element={<BookList />} />
           <Route path='book/:id' element={<BookDetails />} />

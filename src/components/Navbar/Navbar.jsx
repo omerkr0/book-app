@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false)
   const handleNavbar = () => setToggleMenu(!toggleMenu)
+  const closeNavbar = () => setToggleMenu(false)
 
   return (
     <nav className='navbar' id='navbar'>
@@ -37,20 +38,30 @@ function Navbar() {
         >
           <ul className='navbar-nav'>
             <li className='nav-item'>
-              <Link
-                to='book'
-                className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'
+              <NavLink
+                to='/book'
+                onClick={closeNavbar}
+                className={({ isActive }) =>
+                  `nav-link text-uppercase text-white fs-22 fw-6 ls-1 ${
+                    isActive ? 'active' : ''
+                  }`
+                }
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link
-                to='about'
-                className='nav-link text-uppercase text-white fs-22 fw-6 ls-1'
+              <NavLink
+                to='/about'
+                onClick={closeNavbar}
+                className={({ isActive }) =>
+                  `nav-link text-uppercase text-white fs-22 fw-6 ls-1 ${
+                    isActive ? 'active' : ''
+                  }`
+                }
               >
                 about
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
